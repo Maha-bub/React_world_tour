@@ -16,16 +16,22 @@ const Countries = () => {
 
     const handleVisitedCountry = country => {
         console.log('add this to your visited list!')
-        console.log(country)
+        const totalContries = [...visitedCountries, country]
+        setVisitedCountries(totalContries);
+        // console.log(totalContries)
     }
 
     return (
         <div>
             <h3>Countries:{countries.length}</h3>
             <div>
-                <h3>Visited Country:</h3>
+                <h3>Visited Country:{visitedCountries.length}</h3>
                 <ul>
-
+                    {
+                        visitedCountries.map(country => {
+                            return <li>{country.name}</li>
+                        })
+                    }
                 </ul>
             </div>
             <div className="country-container">

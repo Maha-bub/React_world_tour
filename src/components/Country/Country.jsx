@@ -8,7 +8,7 @@ const Country = ({ country, handleVisitedCountry }) => {
     const handleVisited = () => {
         setVisited(!visited);
     }
-    console.log(handleVisitedCountry)
+    // console.log(handleVisitedCountry)
     return (
         <div className={`country ${visited && "visited-country"}`}>
             <h2>Name:{name}</h2>
@@ -17,7 +17,7 @@ const Country = ({ country, handleVisitedCountry }) => {
             <img src={flags?.svg} alt={name?.common} />
             <h3>Population:{population}</h3>
             <p>Area:{area}</p>
-            <button onClick={handleVisitedCountry}>Mark as Visited</button>
+            <button onClick={() => { handleVisitedCountry(country) }}>Mark as Visited</button>
             <button onClick={handleVisited}>{visited ? "Visited" : "Going"}</button>
 
         </div>
