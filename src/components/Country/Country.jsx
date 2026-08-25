@@ -18,6 +18,8 @@ const Country = ({ country, handleVisitedCountry, handleVisitedCountryFlags }) =
             <h3>Population:{population}</h3>
             <p>Area:{area}</p>
             <button onClick={() => { handleVisitedCountry(country) }}>Mark as Visited</button>
+
+            <button onClick={() => handleVisitedCountryFlags(flags?.png)}>   Add Flag</button>
             <button onClick={handleVisited}>{visited ? "Visited" : "Going"}</button>
 
         </div>

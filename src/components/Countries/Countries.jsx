@@ -22,12 +22,10 @@ const Countries = () => {
         // console.log(totalContries)
     }
 
-    const handleVisitedCountryFlags = Flags => {
-        console.log('add this to your visited list!')
-        const totalContriesFlags = [...visitedCountries, Flags]
-        setVisitedCountries(totalContriesFlags);
-        // console.log(totalContries)
-    }
+    const handleVisitedCountryFlags = flag => {
+        const totalCountriesFlags = [...visitedCountriesFlags, flag];
+        setVisitedCountriesFlags(totalCountriesFlags);
+    };
 
     return (
         <div>
@@ -40,7 +38,21 @@ const Countries = () => {
                             return <li>{country.name}</li>
                         })
                     }
+
                 </ul>
+
+                <div>
+                    {
+                        visitedCountriesFlags.map((flag, index) =>
+                            <img
+                                key={index}
+                                src={flag}
+                                alt="Country Flag"
+                                width="100"
+                            />
+                        )
+                    }
+                </div>
             </div>
             <div className="country-container">
                 {
@@ -49,8 +61,8 @@ const Countries = () => {
                             country={country}
                             key={country.numericCode}
 
-                            handleVisitedCountryFlags={handleVisitedCountryFlags}
                             handleVisitedCountry={handleVisitedCountry}
+                            handleVisitedCountryFlags={handleVisitedCountryFlags}
                         >
 
                         </Country>)
@@ -59,5 +71,4 @@ const Countries = () => {
         </div>
     );
 };
-
 export default Countries;
