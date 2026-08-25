@@ -4,8 +4,9 @@ import './Countries.css'
 const Countries = () => {
     const [countries, setCountries] = useState([]);
 
-    const [visitedCountries, setVisitedCountries] = useState([]);
 
+    const [visitedCountries, setVisitedCountries] = useState([]);
+    const [visitedCountriesFlags, setVisitedCountriesFlags] = useState([]);
     useEffect(() => {
         fetch('https://countries.dev/countries')
             .then(response => response.json())
@@ -18,6 +19,13 @@ const Countries = () => {
         console.log('add this to your visited list!')
         const totalContries = [...visitedCountries, country]
         setVisitedCountries(totalContries);
+        // console.log(totalContries)
+    }
+
+    const handleVisitedCountryFlags = Flags => {
+        console.log('add this to your visited list!')
+        const totalContriesFlags = [...visitedCountries, Flags]
+        setVisitedCountries(totalContriesFlags);
         // console.log(totalContries)
     }
 
@@ -40,6 +48,8 @@ const Countries = () => {
                         <Country
                             country={country}
                             key={country.numericCode}
+
+                            handleVisitedCountryFlags={handleVisitedCountryFlags}
                             handleVisitedCountry={handleVisitedCountry}
                         >
 
